@@ -1,3 +1,3 @@
-const newFunction = () => {};
+const newFunction2 = (msg) => { console.log(msg)};
 
-newFunction();
+newFunction('hello world');
