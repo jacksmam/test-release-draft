@@ -1,5 +1,3 @@
-name-template: "$(date +'%Y-%m-%d %H:%M:%S')"
-tag-template: "release-$(date +'%Y-%m-%d %H:%M:%S')"
 categories:
   - title: '✅ Tested on stg'
     label: 'tested on stg'
