@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          TAG_NAME="$(node -e \"console.log(new Date().toLocaleString('ja-JP').replace(/[\s\:\/]/g, ''))\")""
+          TAG_NAME="$(node -e \"console.log(new Date().toLocaleString('ja-JP').replace(/[\s\:\/]/g, ''))\")"
           echo "tag_name=$TAG_NAME" >> $GITHUB_ENV
       - uses: release-drafter/release-drafter@v6
         with:
