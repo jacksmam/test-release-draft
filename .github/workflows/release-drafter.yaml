@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          TAG_NAME=$(node -e "console.log('release-' + new Date().toLocaleString('ja-JP').replace(/[\s\:\/]/g, ''))")
+          TAG_NAME=$(node -e "console.log(new Date().toLocaleString('ja-JP').replace(/[\s\:\/]/g, ''))")
           echo "tag_name=$TAG_NAME" >> $GITHUB_ENV
           echo $TAG_NAME
       - uses: release-drafter/release-drafter@v6
         with:
           name: ${{ env.tag_name }}
-          tag: ${{ env.tag_name }}
+          tag: release-${{ env.tag_name }}
           disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
