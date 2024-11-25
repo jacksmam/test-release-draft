@@ -2,9 +2,6 @@ name: 'Release Drafter'
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
     types: [labeled]
 
@@ -20,7 +17,7 @@ jobs:
     steps:
       - name: Create tag name
         run: |
-          TAG_NAME="$(node -e "console.log(new Date().toLocaleString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\D/g, ''))")"
+          TAG_NAME=date '+%Y-%m-%d-%H%M%S'
           echo "tag_name=$TAG_NAME" >> "$GITHUB_ENV"
         env:
           TZ: 'Asia/Tokyo'
