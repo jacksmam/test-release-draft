@@ -20,8 +20,10 @@ jobs:
     steps:
       - name: Create tag name
         run: |
-          TAG_NAME="$(node -e "console.log(new Date().toLocaleString('ja-JP').replace(/[\s\:\/]/g, ''))")"
+          TAG_NAME="$(node -e "console.log(new Date().toLocaleString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\D/g, ''))")"
           echo "tag_name=$TAG_NAME" >> "$GITHUB_ENV"
+        env:
+          TZ: 'Asia/Tokyo'
       - uses: release-drafter/release-drafter@v6
         with:
           name: ${{ env.tag_name }}
