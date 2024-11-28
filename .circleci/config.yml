@@ -42,6 +42,7 @@ workflows:
     jobs:
       - docker-build-and-push:
         filters:
+          branches:
           tags:
             only:
               - /^release.*/
