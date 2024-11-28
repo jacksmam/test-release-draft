@@ -46,11 +46,10 @@ workflows:
           requires:
             - docker-build-and-push
   build-prod:
-    triggers:
-      filters:
-        tags:
-          only:
-            - /^release.*/
+    filters:
+      tags:
+        only:
+          - /^release.*/
     jobs:
       - docker-build-and-push:
       - pr-create-bot-dummy:
