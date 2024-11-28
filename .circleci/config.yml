@@ -52,6 +52,8 @@ workflows:
             tags:
               only:
                 - /^release.*/
+            branches:
+              ignore: /.*/
       - pr-create-bot-dummy:
           name: pr-create-bot-for-prod
           requires:
