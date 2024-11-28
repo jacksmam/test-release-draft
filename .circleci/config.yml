@@ -33,7 +33,7 @@ jobs:
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   version: 2
-  workflows:
+  # workflowを２つ作ってみた
   build-stg:
     jobs:
       - docker-build-and-push:
@@ -45,15 +45,14 @@ workflows:
           name: pr-create-bot-for-stg
           requires:
             - docker-build-and-push
-
   build-prod:
     jobs:
       - docker-build-and-push:
-          filters:
-          tags:
-            only:
-              - /^release.*/
       - pr-create-bot-dummy:
           name: pr-create-bot-for-prod
           requires:
             - docker-build-and-push
+    filters:
+      tags:
+        only:
+          - /^release.*/
