@@ -41,11 +41,12 @@ workflows:
   build-prod:
     jobs:
       - docker-build-and-push:
-        filters:
-          branches:
-          tags:
-            only:
-              - /^release.*/
+          filters:
+            tags:
+              only:
+                - /^release.*/
+            branches:
+              ignore: /.*/
       - pr-create-bot-dummy:
           name: pr-create-bot-for-prod
           requires:
