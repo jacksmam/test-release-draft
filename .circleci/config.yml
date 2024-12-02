@@ -13,14 +13,14 @@ jobs:
     steps:
       - run:
           name: 'Say hello'
-          command: 'echo Creating PR for ${CIRCLE_BRANCH}'
+          command: 'echo docker-build-and-push: ${CIRCLE_BRANCH}'
   pr-create-bot-dummy:
     docker:
       - image: cimg/base:current
     steps:
       - run:
           name: 'Dummy PR Create Bot'
-          command: 'echo Creating PR for ${CIRCLE_BRANCH}'
+          command: 'echo pr-create-bot-dummy: ${CIRCLE_BRANCH:-$CIRCLE_TAG}'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
