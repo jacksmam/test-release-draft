@@ -13,7 +13,7 @@ jobs:
     steps:
       - run:
           name: 'Say hello'
-          command: 'echo Hello, World!'
+          command: 'Say hello: ${CIRCLE_BRANCH}'
   pr-create-bot-dummy:
     docker:
       - image: cimg/base:current
